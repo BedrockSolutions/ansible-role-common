@@ -1,13 +1,15 @@
-# Dependencies
+# jcheroske.ansible-role-common
+
+## Dependencies
 
 ```bash
 pip install jsonschema
 ```
 
-# Installation/Usage
+## Installation/Usage
 
-To use the plugins and modules in another role, create a dependency
-from that role to this one.
+To use the plugins, modules, and handlers in another role, 
+create a dependency from that role to this one.
 
 * In the new role, create the file `./meta/main.yml` with the 
 following structure:
@@ -19,16 +21,16 @@ dependencies:
   - { role: jcheroske.common }
 ```
 
-# Plugins
+## Plugins
 
-## `validate`
+### `validate`
 
 A plugin that brings `jsonschema` validation to Ansible
 data structures. Declare a `schema` that describes the correct 
 structure, and then pass an `instance` to be validated. See
 https://python-jsonschema.readthedocs.io
 
-### Usage
+#### Usage
 
 ```yaml
 - validate:
@@ -36,9 +38,9 @@ https://python-jsonschema.readthedocs.io
     instance: "{{ the_data_to_be_validated }}"
 ```
 
-### Examples
+#### Examples
 
-#### Simple scalar
+##### Simple scalar
 
 ```yaml
 - validate:
@@ -48,7 +50,7 @@ https://python-jsonschema.readthedocs.io
     instance: "{{ my_string_var }}"
 ```
 
-#### Object
+##### Object
 
 ```yaml
 - validate:
@@ -61,3 +63,9 @@ https://python-jsonschema.readthedocs.io
           type: number
     instance: "{{ my_dict_var }}"
 ```
+
+## Handlers
+
+### reboot
+
+Reboots the machine and waits for an ssh connection.
