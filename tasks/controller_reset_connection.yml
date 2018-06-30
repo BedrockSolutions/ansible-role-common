@@ -1,0 +1,8 @@
+---
+
+- name: "Reset controller SSH connection"
+  file:
+    path: ~/.ansible/cp
+    state: absent
+  delegate_to: localhost
+  changed_when: false

@@ -10,3 +10,9 @@
     timeout: 240
     delay: 15
   listen: reboot
+
+- name: "Reload UFW"
+  ufw:
+    state: reloaded
+  listen: reload_ufw
+  become: yes

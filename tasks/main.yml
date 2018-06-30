@@ -1,0 +1,17 @@
+---
+
+- validate:
+    schema:
+      type: object
+      properties:
+        command:
+          oneOf:
+            - type: "null"
+            - type: string
+              enum:
+                - controller_reset_connection
+          default: null
+    instance: "{{ common }}"
+
+- include_tasks: '{{ common.command }}.yml'
+  when: common.command is not null

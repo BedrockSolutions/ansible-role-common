@@ -1,14 +1,18 @@
 # jcheroske.ansible-role-common
 
+Ansible role that makes several commonly used plugins 
+and handlers available to other roles.
+
 ## Dependencies
 
+`jsonschema` pip module: 
 ```bash
 pip install jsonschema
 ```
 
 ## Installation/Usage
 
-To use the plugins, modules, and handlers in another role, 
+To use the plugins and handlers in another role, 
 create a dependency from that role to this one.
 
 * In the new role, create the file `./meta/main.yml` with the 
@@ -69,3 +73,22 @@ https://python-jsonschema.readthedocs.io
 ### reboot
 
 Reboots the machine and waits for an ssh connection.
+
+### reload_ufw
+
+Reloads the ufw firewall
+
+## Tasks
+
+### controller_reset_connection
+
+Resets the connection between the controller and a target machine.
+Subsequent tasks will establish a new SSH login.
+
+```yaml
+- import_task:
+    name: jcheroske.ansible_role_common
+  vars:
+    common:
+      command: controller_reset_connection
+```
