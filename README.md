@@ -74,7 +74,7 @@ https://python-jsonschema.readthedocs.io
 
 Reboots the machine and waits for an ssh connection.
 
-### reload_ufw
+### ufw_reload
 
 Reloads the ufw firewall
 

@@ -14,5 +14,5 @@
 - name: "Reload UFW"
   ufw:
     state: reloaded
-  listen: reload_ufw
+  listen: ufw_reload
   become: yes
