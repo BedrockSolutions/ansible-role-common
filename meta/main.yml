@@ -11,5 +11,5 @@ galaxy_info:
         - bionic
   galaxy_tags:
     - jsonschema
-    - validation
+    - validationg
 dependencies: []

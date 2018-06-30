@@ -18,7 +18,7 @@ following structure:
 
 ---
 dependencies:
-  - { role: jcheroske.common }
+  - { role: jcheroske.ansible_role_common }
 ```
 
 ## Plugins
