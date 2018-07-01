@@ -11,7 +11,8 @@
               enum:
                 - controller_reset_connection
           default: null
-    instance: "{{ common }}"
+    instance: "{{ common | default({}) }}"
+  register: common_validated
 
-- include_tasks: '{{ common.command }}.yml'
-  when: common.command is not null
+- include_tasks: '{{ common_validated.command }}.yml'
+  when: common_validated.command is not null
