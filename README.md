@@ -1,8 +1,8 @@
-# jcheroske.ansible-role-common
+# jcheroske.common
 
-Ansible role that makes several commonly used plugins 
-and handlers available to other roles.
-
+Ansible role that contains several commonly used tasks, handlers,
+and plugins.
+ 
 ## Dependencies
 
 `jsonschema` pip module: 
@@ -10,20 +10,23 @@ and handlers available to other roles.
 pip install jsonschema
 ```
 
-## Installation/Usage
+## Installation
 
-To use the plugins and handlers in another role, 
-create a dependency from that role to this one.
-
-* In the new role, create the file `./meta/main.yml` with the 
+In the client role, create the file `./meta/main.yml` with the 
 following structure:
 
 ```yaml
 
 ---
 dependencies:
-  - { role: jcheroske.ansible_role_common }
+  - name: jcheroske.common
+    scm: git
+    src: git@github.com:jcheroske/ansible-role-common.git
+    version: master
 ```
+
+This allows importing or including of the role, 
+and makes the handers and plugins available.
 
 ## Plugins
 
@@ -72,13 +75,13 @@ https://python-jsonschema.readthedocs.io
 
 ### reboot
 
-Reboots the machine and waits for an ssh connection.
+Causes the `reboot_if_requested` command to initiate a reboot.
 
 ### ufw_reload
 
 Reloads the ufw firewall
 
-## Tasks
+## Tasks/Commands
 
 ### controller_reset_connection
 
@@ -87,8 +90,44 @@ Subsequent tasks will establish a new SSH login.
 
 ```yaml
 - import_task:
-    name: jcheroske.ansible_role_common
+    name: jcheroske.common
   vars:
     common:
       command: controller_reset_connection
+```
+
+### reboot
+
+Reboots the machine.
+
+```yaml
+- import_role:
+    name: jcheroske.common
+  vars:
+    common:
+      command: reboot
+```
+
+### reboot_if_requested
+
+Reboots the machine if the `reboot` handler had been previously
+called.
+
+#### Example
+
+Notify the reboot handler:
+
+```yaml
+- some_task:
+  notify: reboot
+```
+
+At the point in the play where a conditional reboot is desired:
+
+```yaml
+- import_role:
+    name: jcheroske.common
+  vars:
+    common:
+      command: reboot_if_requested
 ```
