@@ -1,8 +1,7 @@
 ---
 
-- name: "Reboot the machine"
+- name: reboot
   shell: nohup bash -c "sleep 2s && shutdown -r now" &
-  listen: reboot
   become: yes
 
 - name: "Wait for the machine to reboot"
@@ -11,8 +10,7 @@
     delay: 15
   listen: reboot
 
-- name: "Reload UFW"
+- name: ufw_reload
   ufw:
     state: reloaded
-  listen: ufw_reload
   become: yes
