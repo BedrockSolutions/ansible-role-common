@@ -1,18 +1,8 @@
 ---
 
 - name: reboot
-  meta: flush_handlers
-
-- name: "Reboot machine"
-  shell: nohup bash -c "sleep 2s && shutdown -r now" &
-  listen: reboot
-  become: yes
-
-- name: "Wait for the machine to reboot"
-  wait_for_connection:
-    timeout: 240
-    delay: 15
-  listen: reboot
+  set_fact:
+    common_reboot_requested: yes
 
 - name: ufw_reload
   ufw:

@@ -9,6 +9,7 @@
               type: string
               enum:
                 - controller_reset_connection
+                - reboot_if_requested
         instance: "{{ common }}"
 
     - include_tasks: '{{ common.command }}.yml'
