@@ -1,16 +1,1 @@
-galaxy_info:
-  author: Jay Cheroske
-  description: A role containing common plugins and modules.
-  license: GPLv3
-  min_ansible_version: 2.5
-  github_branch: galaxy
-  platforms:
-    - name: Ubuntu
-      versions:
-        - xenial
-        - bionic
-  galaxy_tags:
-    - jsonschema
-    - reboot
-    - validation
 dependencies: []
