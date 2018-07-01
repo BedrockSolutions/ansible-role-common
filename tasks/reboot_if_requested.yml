@@ -3,7 +3,7 @@
 - name: "Flush handlers to see if reboot is requested"
   meta: flush_handlers
 
-- block
+- block:
     - name: "Reboot machine"
       shell: nohup bash -c "sleep 2s && shutdown -r now" &
       become: yes
