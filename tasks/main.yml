@@ -17,3 +17,7 @@
 
     - include_tasks: '{{ common_validated.command }}.yml'
   when: common is defined
+
+- debug:
+    msg: "common was not defined"
+  when: common is not defined
