@@ -1,18 +1,19 @@
 ---
 
-- validate:
-    schema:
-      type: object
-      properties:
-        command:
-          oneOf:
-            - type: "null"
-            - type: string
-              enum:
-                - controller_reset_connection
-          default: null
-    instance: "{{ common | default({}) }}"
-  register: common_validated
+- block:
+    - validate:
+        schema:
+          type: object
+          properties:
+            command:
+              oneOf:
+                - type: "null"
+                - type: string
+                  enum:
+                    - controller_reset_connection
+              default: null
+        instance: "{{ common }}"
+      register: common_validated
 
-- include_tasks: '{{ common_validated.command }}.yml'
-  when: common_validated.command is not null
+    - include_tasks: '{{ common_validated.command }}.yml'
+  when: common is defined
