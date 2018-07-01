@@ -12,7 +12,6 @@
       wait_for_connection:
         timeout: 240
         delay: 15
-      listen: reboot
 
     - name: "Reset the reboot flag"
       set_fact:
