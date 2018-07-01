@@ -1,7 +1,11 @@
 ---
 
 - name: reboot
+  meta: flush_handlers
+
+- name: "Reboot machine"
   shell: nohup bash -c "sleep 2s && shutdown -r now" &
+  listen: reboot
   become: yes
 
 - name: "Wait for the machine to reboot"
