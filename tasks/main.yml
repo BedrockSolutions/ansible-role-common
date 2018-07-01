@@ -1,13 +1,15 @@
 ---
 
-- validate:
-    schema:
-      type: object
-      properties:
-        command:
-          type: string
-          enum:
-            - controller_reset_connection
-    instance: "{{ common }}"
+- block:
+    - validate:
+        schema:
+          type: object
+          properties:
+            command:
+              type: string
+              enum:
+                - controller_reset_connection
+        instance: "{{ common }}"
 
-- include_tasks: '{{ common.command }}.yml'
+    - include_tasks: '{{ common.command }}.yml'
+  when: common is defined
