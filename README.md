@@ -77,10 +77,6 @@ https://python-jsonschema.readthedocs.io
 
 Causes the `reboot_if_requested` command to initiate a reboot.
 
-### ufw_reload
-
-Reloads the ufw firewall
-
 ## Tasks/Commands
 
 ### controller_reset_connection

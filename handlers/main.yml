@@ -3,8 +3,3 @@
 - name: reboot
   set_fact:
     common_reboot_requested: yes
-
-- name: ufw_reload
-  ufw:
-    state: reloaded
-  become: yes
