@@ -14,4 +14,4 @@
         instance: "{{ common }}"
 
     - include_tasks: '{{ common.command }}.yml'
-  when: not dependency
+  when: dependency is not defined
