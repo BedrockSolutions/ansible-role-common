@@ -11,6 +11,8 @@
             - dependency
             - reboot
             - reboot_if_requested
+      required:
+        - command
     instance: "{{ common }}"
 
 - include_tasks: '{{ common.command }}.yml'
