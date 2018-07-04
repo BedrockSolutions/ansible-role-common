@@ -28,6 +28,8 @@ dependencies:
 This allows importing or including of the role, 
 and makes the handers and plugins available.
 
+>__Note:__ The `version` field can be a branch, tag, or commit hash.
+
 ## Plugins
 
 ### `validate`
@@ -43,10 +45,10 @@ https://python-jsonschema.readthedocs.io
 - validate:
     schema: "{{ the_json_schema }}"
     instance: "{{ the_data_to_be_validated }}"
-    register: "{{ the_validated_data_with_defaults }}" # See note below
+    register: "{{ the_validated_data_with_defaults }}" # See note
 ```
 
-* __Note:__ The data with defaults is available at the `result` key.
+>__Note:__ The data with defaults is available at the `result` key.
 See complex example below.
 
 #### Examples
