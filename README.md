@@ -43,7 +43,11 @@ https://python-jsonschema.readthedocs.io
 - validate:
     schema: "{{ the_json_schema }}"
     instance: "{{ the_data_to_be_validated }}"
+    register: "{{ the_validated_data_with_defaults }}" # See note below
 ```
+
+* __Note:__ The data with defaults is available at the `result` key.
+See complex example below.
 
 #### Examples
 
@@ -71,6 +75,40 @@ https://python-jsonschema.readthedocs.io
     instance: "{{ my_dict_var }}"
 ```
 
+##### Complex object
+
+```yaml
+- validate:
+    schema:
+      type: object
+      properties:
+        host:
+          type: string
+          format: hostname
+        port:
+          type: integer
+          default: 80
+          minimum: 1
+          maximum: 1024
+        color:
+          type: string
+          enum:
+            - red
+            - green
+            - blue
+          default: blue
+      required:
+        - host
+        - port
+        - color
+    instance: "{{ my_dict_var }}"
+    register: my_dict_var_validated
+
+# The validated instance, with defaults, is available like this:
+- debug:
+    var: my_dict_var_validated.result
+```
+
 ## Handlers
 
 ### reboot
@@ -92,6 +130,31 @@ Subsequent tasks will establish a new SSH login.
       command: controller_reset_connection
 ```
 
+### format_device
+
+Formats the device with the specified filesystem. Currently only
+supports `ext4`
+
+#### Parameters
+
+* `device`: The device to format. 
+  * Required
+  * String
+  
+* `filesystem`: The filesystem to use. 
+  * Required
+  * String
+  * Default: `ext4`
+  
+```yaml
+- import_task:
+    name: jcheroske.common
+  vars:
+    common:
+      command: format_device
+      device: /dev/sdb
+```
+
 ### reboot
 
 Reboots the machine.
@@ -107,9 +170,9 @@ Reboots the machine.
 ### reboot_if_required
 
 Reboots the machine if the `reboot` handler had been previously
-called.
+called, or if the `/var/run/reboot-required` file exists.
 
-#### Example
+#### Example, using the handler
 
 Notify the reboot handler:
 
@@ -118,7 +181,7 @@ Notify the reboot handler:
   notify: reboot
 ```
 
-At the point in the play where a conditional reboot is desired:
+At a later point in the play where a conditional reboot is desired:
 
 ```yaml
 - import_role:
@@ -126,4 +189,69 @@ At the point in the play where a conditional reboot is desired:
   vars:
     common:
       command: reboot_if_required
+```
+
+### shutdown
+
+Performs an immediate system shutdown.
+
+```yaml
+- import_role:
+    name: jcheroske.common
+  vars:
+    common:
+      command: shutdown
+```
+
+### update_packages
+
+Updates the `apt` package cache.
+
+```yaml
+- import_role:
+    name: jcheroske.common
+  vars:
+    common:
+      command: update_packages
+```
+
+### upgrade_packages
+
+Upgrades installed packages
+
+#### Parameters
+
+* autoclean
+  * required
+  * boolean
+  * default: `true`
+
+* autoremove
+  * required
+  * boolean
+  * default: `true`
+
+* force_apt_get
+  * required
+  * boolean
+  * default: `true`
+
+* type
+  * required
+  * string
+  * enum: `['full', 'safe']`
+  * default: `safe`
+
+* update_cache
+  * required
+  * boolean
+  * default: `false`
+
+```yaml
+- import_role:
+    name: jcheroske.common
+  vars:
+    common:
+      command: upgrade_packages
+      update_cache: yes
 ```
