@@ -1,6 +1,6 @@
 ---
 
-- name: "Flush handlers before reboot"
+- name: "Flush handlers before shutdown"
   meta: flush_handlers
 
 - name: "Shutdown the machine"

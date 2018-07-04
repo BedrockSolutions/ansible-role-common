@@ -8,6 +8,7 @@
     path: /var/run/reboot-required
   register: common_reboot_required_file
   changed_when: common_reboot_required_file.stat.exists
+  when: not common_reboot_required
 
 - block:
     - name: "Reboot machine"
