@@ -11,7 +11,8 @@
             - dependency
             - format_device
             - reboot
-            - reboot_if_requested
+            - reboot_if_required
+            - shutdown
             - update_packages
             - upgrade_packages
       required:

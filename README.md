@@ -75,7 +75,7 @@ https://python-jsonschema.readthedocs.io
 
 ### reboot
 
-Causes the `reboot_if_requested` command to initiate a reboot.
+Causes the `reboot_if_required` command to initiate a reboot.
 
 ## Tasks/Commands
 
@@ -104,7 +104,7 @@ Reboots the machine.
       command: reboot
 ```
 
-### reboot_if_requested
+### reboot_if_required
 
 Reboots the machine if the `reboot` handler had been previously
 called.
@@ -125,5 +125,5 @@ At the point in the play where a conditional reboot is desired:
     name: jcheroske.common
   vars:
     common:
-      command: reboot_if_requested
+      command: reboot_if_required
 ```
