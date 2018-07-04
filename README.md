@@ -158,7 +158,11 @@ supports `ext4`
 
 ### reboot
 
-Reboots the machine.
+Reboots the machine. 
+
+* Flushes all handlers beforehand.
+* After the reboot, waits for the machine's ssh connection 
+to return before proceeding.
 
 ```yaml
 - import_role:
@@ -171,7 +175,11 @@ Reboots the machine.
 ### reboot_if_required
 
 Reboots the machine if the `reboot` handler had been previously
-called, or if the `/var/run/reboot-required` file exists.
+called, or if the `/var/run/reboot-required` file exists. 
+
+* Flushes all handlers beforehand.
+* After the reboot, waits for the machine's ssh connection 
+to return before proceeding.
 
 #### Example, using the handler
 
