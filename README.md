@@ -138,13 +138,14 @@ supports `ext4`
 #### Parameters
 
 * `device`: The device to format. 
-  * Required
-  * String
+  * required
+  * string
   
 * `filesystem`: The filesystem to use. 
-  * Required
-  * String
-  * Default: `ext4`
+  * required
+  * string
+  * enum: `['ext4']`
+  * default: `ext4`
   
 ```yaml
 - import_task:
