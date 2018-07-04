@@ -137,22 +137,12 @@ supports `ext4`
 
 #### Parameters
 
-* `device`: The device to format.
-
-| required | string |
-|---|---| 
+* `device` __(string)__ device to format
   
-* `filesystem`: The filesystem to use. 
-  * required
-  * string
-  * enum: `['ext4']`
+* `filesystem` __(string)__ filesystem to use
+  * values: `['ext4']`
   * default: `ext4`
   
-| Parameter | Necessity | Type | Default | Enum |
-|---|---|---|---|---|
-| `device` | required | string |
-| `filesystem` | required | string | `ext4` | `['ext4']` |
-
 ```yaml
 - import_task:
     name: jcheroske.common
@@ -236,30 +226,21 @@ Upgrades installed packages
 
 #### Parameters
 
-* autoclean
-  * required
-  * boolean
+* autoclean __(boolean)__ cleans the local repository of 
+retrieved package files that can no longer be downloaded
   * default: `true`
 
-* autoremove
-  * required
-  * boolean
+* autoremove __(boolean)__ remove unused dependency packages
   * default: `true`
 
-* force_apt_get
-  * required
-  * boolean
+* force_apt_get __(boolean)__ force usage of apt-get instead of aptitude
   * default: `true`
 
-* type
-  * required
-  * string
+* type __(string)__ type of upgrade to perform
   * enum: `['full', 'safe']`
   * default: `safe`
 
-* update_cache
-  * required
-  * boolean
+* update_cache __(boolean)__ update the cache before running upgrade
   * default: `false`
 
 ```yaml
