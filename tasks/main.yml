@@ -9,8 +9,11 @@
           enum:
             - controller_reset_connection
             - dependency
+            - format_device
             - reboot
             - reboot_if_requested
+            - update_packages
+            - upgrade_packages
       required:
         - command
     instance: "{{ common }}"
