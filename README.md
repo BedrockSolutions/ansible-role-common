@@ -149,8 +149,8 @@ supports `ext4`
   
 | Parameter | Necessity | Type | Default | Enum |
 |---|---|---|---|---|
-| device | required | string |
-| filesystem | required | string | ext4 | ext4 |
+| `device` | required | string |
+| `filesystem` | required | string | `ext4` | `['ext4']` |
 
 ```yaml
 - import_task:
