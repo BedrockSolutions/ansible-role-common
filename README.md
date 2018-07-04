@@ -147,6 +147,11 @@ supports `ext4`
   * enum: `['ext4']`
   * default: `ext4`
   
+| Parameter | Necessity | Type | Default | Enum |
+|---|---|---|---|---|
+| device | required | string |
+| filesystem | required | string | ext4 | ext4 |
+
 ```yaml
 - import_task:
     name: jcheroske.common
