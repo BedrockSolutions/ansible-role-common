@@ -138,6 +138,7 @@ supports `ext4`
 #### Parameters
 
 * `device`: The device to format.
+
 | required | string |
 |---|---| 
   
