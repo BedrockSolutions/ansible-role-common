@@ -116,16 +116,18 @@ See complex example below.
 
 ## Handlers
 
-### reboot
+### `reboot`
 
 Causes the `reboot_if_required` command to initiate a reboot.
 
 ## Tasks/Commands
 
-### controller_reset_connection
+### `controller_reset_connection`
 
 Resets the connection between the controller and a target machine.
 Subsequent tasks will establish a new SSH login.
+
+#### Example
 
 ```yaml
 - import_task:
@@ -135,7 +137,7 @@ Subsequent tasks will establish a new SSH login.
       command: controller_reset_connection
 ```
 
-### format_device
+### `format_device`
 
 Formats the device with the specified filesystem. Currently only
 supports `ext4`
@@ -145,9 +147,11 @@ supports `ext4`
 * `device` __(string)__ device to format
   
 * `filesystem` __(string)__ filesystem to use
-  * values: `['ext4']`
-  * default: `ext4`
+  * enum: `['ext4']`
+  * default: `'ext4'`
   
+#### Example
+
 ```yaml
 - import_task:
     name: jcheroske.common
@@ -157,13 +161,15 @@ supports `ext4`
       device: /dev/sdb
 ```
 
-### reboot
+### `reboot`
 
 Reboots the machine. 
 
 * Flushes all handlers beforehand.
 * After the reboot, waits for the machine's ssh connection 
 to return before proceeding.
+
+#### Example
 
 ```yaml
 - import_role:
@@ -173,7 +179,7 @@ to return before proceeding.
       command: reboot
 ```
 
-### reboot_if_required
+### `reboot_if_required`
 
 Reboots the machine if the `reboot` handler had been previously
 called, or if the `/var/run/reboot-required` file exists. 
@@ -201,9 +207,11 @@ At a later point in the play where a conditional reboot is desired:
       command: reboot_if_required
 ```
 
-### shutdown
+### `shutdown`
 
 Performs an immediate system shutdown.
+
+#### Example
 
 ```yaml
 - import_role:
@@ -213,9 +221,11 @@ Performs an immediate system shutdown.
       command: shutdown
 ```
 
-### update_packages
+### `update_packages`
 
 Updates the `apt` package cache.
+
+#### Example
 
 ```yaml
 - import_role:
@@ -225,7 +235,7 @@ Updates the `apt` package cache.
       command: update_packages
 ```
 
-### upgrade_packages
+### `upgrade_packages`
 
 Upgrades installed packages
 
@@ -243,10 +253,12 @@ retrieved package files that can no longer be downloaded
 
 * type __(string)__ type of upgrade to perform
   * enum: `['full', 'safe']`
-  * default: `safe`
+  * default: `'safe'`
 
 * update_cache __(boolean)__ update the cache before running upgrade
   * default: `false`
+
+#### Example
 
 ```yaml
 - import_role:
