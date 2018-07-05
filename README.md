@@ -22,6 +22,9 @@ dependencies:
   - name: jcheroske.common
     scm: git
     src: git@github.com:jcheroske/ansible-role-common.git
+    vars:
+      common:
+        command: dependency
     version: master
 ```
 
