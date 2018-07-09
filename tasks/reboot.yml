@@ -11,4 +11,3 @@
   wait_for_connection:
     timeout: 240
     delay: 15
-  listen: reboot

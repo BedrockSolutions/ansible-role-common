@@ -9,8 +9,6 @@ try:
 except ImportError as e:
     raise AnsibleError(to_native(e))
 
-__metaclass__ = type
-
 
 def set_defaults(validator, properties, instance, schema):
     for prop, subschema in properties.items():
@@ -50,5 +48,6 @@ class ActionModule(ActionBase):
             raise AnsibleActionFail(to_native(e))
 
         return_value = super(ActionModule, self).run(tmp, task_vars)
+        del return_value["invocation"]["module_args"]
         return_value['result'] = instance_copy
         return return_value

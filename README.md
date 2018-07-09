@@ -144,11 +144,13 @@ supports `ext4`
 
 #### Parameters
 
-* `device` __(string)__ device to format
+* __`device`:__ device to format
+    * type: string
   
-* `filesystem` __(string)__ filesystem to use
-  * enum: `['ext4']`
-  * default: `'ext4'`
+* __`filesystem`:__ filesystem to use
+    * type: string
+    * enum: `['ext4']`
+    * default: `'ext4'`
   
 #### Example
 
@@ -241,22 +243,27 @@ Upgrades installed packages
 
 #### Parameters
 
-* autoclean __(boolean)__ cleans the local repository of 
-retrieved package files that can no longer be downloaded
-  * default: `true`
+* __`autoclean`:__ cleans the local repository of retrieved 
+package files that can no longer be downloaded
+    * type: boolean
+    * default: `true`
 
-* autoremove __(boolean)__ remove unused dependency packages
-  * default: `true`
+* __`autoremove`:__ remove unused dependency packages
+    * type: boolean
+    * default: `true`
 
-* force_apt_get __(boolean)__ force usage of apt-get instead of aptitude
-  * default: `true`
+* __`force_apt_get`:__ force usage of apt-get instead of aptitude
+    * type: boolean
+    * default: `true`
 
-* type __(string)__ type of upgrade to perform
-  * enum: `['full', 'safe']`
-  * default: `'safe'`
+* __`type`:__ type of upgrade to perform
+    * type: string
+    * enum: `['full', 'safe']`
+    * default: `'safe'`
 
-* update_cache __(boolean)__ update the cache before running upgrade
-  * default: `false`
+* __`update_cache`:__ update the cache before running upgrade
+    * type: boolean
+    * default: `false`
 
 #### Example
 
