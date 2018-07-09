@@ -48,6 +48,5 @@ class ActionModule(ActionBase):
             raise AnsibleActionFail(to_native(e))
 
         return_value = super(ActionModule, self).run(tmp, task_vars)
-        del return_value["invocation"]["module_args"]
         return_value['result'] = instance_copy
         return return_value
