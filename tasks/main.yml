@@ -9,7 +9,6 @@
           enum:
             - controller_reset_connection
             - dependency
-            - format_device
             - reboot
             - reboot_if_required
             - shutdown

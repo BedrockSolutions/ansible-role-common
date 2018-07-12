@@ -48,7 +48,7 @@ https://python-jsonschema.readthedocs.io
 - validate:
     schema: "{{ the_json_schema }}"
     instance: "{{ the_data_to_be_validated }}"
-    register: "{{ the_validated_data_with_defaults }}" # See note
+    register: the_validated_data_with_defaults # See note
 ```
 
 >__Note:__ The data with defaults is available at the `result` key.
@@ -135,32 +135,6 @@ Subsequent tasks will establish a new SSH login.
   vars:
     common:
       command: controller_reset_connection
-```
-
-### `format_device`
-
-Formats the device with the specified filesystem. Currently only
-supports `ext4`
-
-#### Parameters
-
-* __`device`:__ device to format
-    * type: string
-  
-* __`filesystem`:__ filesystem to use
-    * type: string
-    * enum: `['ext4']`
-    * default: `'ext4'`
-  
-#### Example
-
-```yaml
-- import_task:
-    name: jcheroske.common
-  vars:
-    common:
-      command: format_device
-      device: /dev/sdb
 ```
 
 ### `reboot`
