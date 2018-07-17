@@ -1,8 +1,11 @@
 ---
 
-- name: "Reset controller SSH connection"
-  file:
-    path: ~/.ansible/cp
-    state: absent
-  delegate_to: localhost
-  changed_when: false
+- block:
+    - name: "Reset controller SSH connection"
+      file:
+        path: ~/.ansible/cp
+        state: absent
+      delegate_to: localhost
+      changed_when: false
+  tags:
+    - common_controller_reset_connection

@@ -1,22 +1,25 @@
 ---
 
-- validate:
-    schema:
-      type: object
-      properties:
-        command:
-          type: string
-          enum:
-            - controller_reset_connection
-            - dependency
-            - reboot
-            - reboot_if_required
-            - shutdown
-            - update_packages
-            - upgrade_packages
-      required:
-        - command
-    instance: "{{ common }}"
+- block:
+    - validate:
+        schema:
+          type: object
+          properties:
+            command:
+              type: string
+              enum:
+                - controller_reset_connection
+                - dependency
+                - reboot
+                - reboot_if_required
+                - shutdown
+                - update_packages
+                - upgrade_packages
+          required:
+            - command
+        instance: "{{ common }}"
 
-- include_tasks: '{{ common.command }}.yml'
-  when: common.command != 'dependency'
+    - include_tasks: '{{ common.command }}.yml'
+      when: common.command != 'dependency'
+  tags:
+    - common

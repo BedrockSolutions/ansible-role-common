@@ -1,13 +1,16 @@
 ---
 
-- name: "Flush handlers before reboot"
-  meta: flush_handlers
+- block:
+    - name: "Flush handlers before reboot"
+      meta: flush_handlers
 
-- name: "Reboot machine"
-  shell: nohup bash -c "sleep 2s && shutdown -r now" &
-  become: yes
+    - name: "Reboot machine"
+      shell: nohup bash -c "sleep 2s && shutdown -r now" &
+      become: yes
 
-- name: "Wait for the ssh connection to return"
-  wait_for_connection:
-    timeout: 240
-    delay: 15
+    - name: "Wait for the ssh connection to return"
+      wait_for_connection:
+        timeout: 240
+        delay: 15
+  tags:
+    - common_reboot
