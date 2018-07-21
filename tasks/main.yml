@@ -10,11 +10,6 @@
               enum:
                 - controller_reset_connection
                 - dependency
-                - reboot
-                - reboot_if_required
-                - shutdown
-                - update_packages
-                - upgrade_packages
           required:
             - command
         instance: "{{ common }}"

@@ -1,9 +1,0 @@
----
-
-- name: 'Update Apt package list'
-  apt:
-    update_cache: yes
-  changed_when: no
-  become: yes
-  tags:
-    - update_packages
