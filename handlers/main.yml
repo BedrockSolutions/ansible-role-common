@@ -1,5 +1,0 @@
----
-
-- name: reboot
-  set_fact:
-    common_reboot_required: yes
