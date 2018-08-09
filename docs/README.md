@@ -19,6 +19,7 @@ To use `bedrock.common` in another role, create the file
 
 ```yaml
 ---
+
 dependencies:
   - name: bedrock.common
     scm: git
