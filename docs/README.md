@@ -55,7 +55,7 @@ or
 
 ## Plugins
 
-### validate
+### __validate__
 
 A plugin that brings `jsonschema` validation to Ansible
 data structures. Declare a `schema` that describes the correct 
