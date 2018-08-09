@@ -18,8 +18,6 @@ To use `bedrock.common` in another role, create the file
 `<role_root>/meta/main.yml` with the following structure:
 
 ```yaml
----
-
 dependencies:
   - name: bedrock.common
     scm: git
