@@ -55,7 +55,7 @@ or
 
 ## Plugins
 
-### `validate`
+### validate
 
 A plugin that brings `jsonschema` validation to Ansible
 data structures. Declare a `schema` that describes the correct 
@@ -136,7 +136,7 @@ See complex example below.
 
 ## Commands
 
-### `controller_reset_connection`
+### controller_reset_connection
 
 Resets the connection between the controller and a target machine.
 Subsequent tasks will establish a new SSH login. This is useful when,
