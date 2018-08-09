@@ -37,7 +37,7 @@ add an entry to the `requirements.yml` file:
   src: https://github.com/BedrockSolutions/ansible-role-common.git
   version: master
 ```
->__Note:__ The `version` field can be a branch, tag, or commit hash.
+>__Note:__ In both examples, the `version` field can be a branch, tag, or commit hash.
 
 The plugins are now available, and the commands can be invoked using
 the following syntax:
