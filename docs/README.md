@@ -30,8 +30,8 @@ dependencies:
     version: master
 ```
 
-This allows importing or including of the role, and makes the handers
-and plugins available.
+This allows importing or including of the role, and makes the 
+plugins available.
 
 >__Note:__ The `version` field can be a branch, tag, or commit hash.
 
