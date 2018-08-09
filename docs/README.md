@@ -4,7 +4,11 @@ Ansible role that contains commonly used tasks and plugins.
 
 A prettier version of this documentation is located at 
 https://bedrocksolutions.github.io/ansible-role-common
- 
+
+* Commands
+  * [controller_reset_connection](#controller_reset_connection)
+* Plugins
+
 ## Dependencies
 
 `jsonschema` pip module: 
