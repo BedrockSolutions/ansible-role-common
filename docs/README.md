@@ -7,7 +7,9 @@ https://bedrocksolutions.github.io/ansible-role-common
 
 * Commands
   * [controller_reset_connection](#controller_reset_connection)
+  
 * Plugins
+  * [validate](#validate)
 
 ## Dependencies
 
