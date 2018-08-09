@@ -39,8 +39,13 @@ add an entry to the `requirements.yml` file:
 ```
 >__Note:__ In both examples, the `version` field can be a branch, tag, or commit hash.
 
-The plugins are now available, and the commands can be invoked using
-the following syntax:
+The plugins are now available, and the role can be imported or included
+as `bedrock.common`.
+
+## Command Invocation
+
+The role is made up of commands can be invoked using the following 
+syntax:
 
 ```yaml
 - import_role
