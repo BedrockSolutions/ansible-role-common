@@ -136,7 +136,7 @@ See complex example below.
 
 ## Commands
 
-### controller_reset_connection
+### __controller_reset_connection__
 
 Resets the connection between the controller and a target machine.
 Subsequent tasks will establish a new SSH login. This is useful when,
