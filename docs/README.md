@@ -18,7 +18,6 @@ To use `bedrock.common` in another role, create the file
 `<role_root>/meta/main.yml` with the following structure:
 
 ```yaml
-
 ---
 dependencies:
   - name: bedrock.common
@@ -36,7 +35,6 @@ The plugins are now available, and the commands can be invoked using
 the following syntax:
 
 ```yaml
-
 - import_role
     name: bedrock.common
   vars:
@@ -48,7 +46,6 @@ the following syntax:
 or
 
 ```yaml
-
 - include_role
     name: bedrock.common
   vars:
