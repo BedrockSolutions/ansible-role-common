@@ -2,7 +2,7 @@
 
 Ansible role that contains commonly used tasks and plugins.
 
-Documentation is located at 
+A prettier version of this documentation is located at 
 https://bedrocksolutions.github.io/ansible-role-common
  
 ## Dependencies
