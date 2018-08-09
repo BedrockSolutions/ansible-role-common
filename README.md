@@ -3,6 +3,11 @@
 Ansible role that contains several commonly used tasks, handlers,
 and plugins.
  
+## Repository moved! ##
+
+This repository has been transferred to the BedrockSolutions
+organization [here](https://github.com/BedrockSolutions/ansible-role-common.git).
+
 ## Dependencies
 
 `jsonschema` pip module: 
