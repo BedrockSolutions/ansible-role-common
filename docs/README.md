@@ -1,6 +1,8 @@
 # bedrock.common
 
 Ansible role that contains commonly used tasks and plugins.
+
+Documentation site: [https://bedrocksolutions.github.io/ansible-role-common]
  
 ## Dependencies
 
