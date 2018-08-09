@@ -44,7 +44,7 @@ as `bedrock.common`.
 
 ## Command Invocation
 
-The role is made up of commands can be invoked using the following 
+The role is made up of commands that can be invoked using the following 
 syntax:
 
 ```yaml
