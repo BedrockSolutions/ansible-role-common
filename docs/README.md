@@ -42,31 +42,6 @@ add an entry to the `requirements.yml` file:
 The plugins are now available, and the role can be imported or included
 as `bedrock.common`.
 
-## Command Invocation
-
-The role is made up of commands can be invoked using the following 
-syntax:
-
-```yaml
-- import_role
-    name: bedrock.common
-  vars:
-    common:
-      command: <command_name>
-      ...command_vars
-```
-
-or
-
-```yaml
-- include_role
-    name: bedrock.common
-  vars:
-    common:
-      command: <command_name>
-      ...command_vars
-```
-
 ## Plugins
 
 ### __validate__
@@ -146,6 +121,31 @@ See complex example below.
 # The validated instance, with defaults, is available like this:
 - debug:
     var: my_dict_var_validated.result
+```
+
+## Command Invocation
+
+The role is made up of commands can be invoked using the following 
+syntax:
+
+```yaml
+- import_role
+    name: bedrock.common
+  vars:
+    common:
+      command: <command_name>
+      ...command_vars
+```
+
+or
+
+```yaml
+- include_role
+    name: bedrock.common
+  vars:
+    common:
+      command: <command_name>
+      ...command_vars
 ```
 
 ## Commands
