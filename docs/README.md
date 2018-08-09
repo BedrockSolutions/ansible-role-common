@@ -151,7 +151,7 @@ necessary to pick up the new group's privileges.
 
 ```yaml
 - import_task:
-    name: bedroc.common
+    name: bedrock.common
   vars:
     common:
       command: controller_reset_connection
