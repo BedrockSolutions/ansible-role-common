@@ -14,8 +14,8 @@ pip install jsonschema
 
 ## Installation
 
-In the client role, create the file `./meta/main.yml` with the 
-following structure:
+To use `bedrock.common` in another role, create the file 
+`<role_root>/meta/main.yml` with the following structure:
 
 ```yaml
 
@@ -30,10 +30,32 @@ dependencies:
     version: master
 ```
 
-This allows importing or including of the role, and makes the 
-plugins available.
-
 >__Note:__ The `version` field can be a branch, tag, or commit hash.
+
+The plugins are now available, and the commands can be invoked using
+the following syntax:
+
+```yaml
+
+- import_role
+    name: bedrock.common
+  vars:
+    common:
+      command: <command_name>
+      ...command_vars
+```
+
+or
+
+```yaml
+
+- include_role
+    name: bedrock.common
+  vars:
+    common:
+      command: <command_name>
+      ...command_vars
+```
 
 ## Plugins
 
@@ -116,12 +138,14 @@ See complex example below.
     var: my_dict_var_validated.result
 ```
 
-## Tasks/Commands
+## Commands
 
 ### `controller_reset_connection`
 
 Resets the connection between the controller and a target machine.
-Subsequent tasks will establish a new SSH login.
+Subsequent tasks will establish a new SSH login. This is useful when,
+for example, the SSH user is added to a new group and a fresh login is
+necessary to pick up the new group's privileges.
 
 #### Example
 
