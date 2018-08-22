@@ -1,4 +1,4 @@
 ---
 
 - include_tasks: ./common.yml
-  when (common not exists) or (command not in common) or (common.command != 'dependency')
+  when: (common not exists) or (command not in common) or (common.command != 'dependency')
