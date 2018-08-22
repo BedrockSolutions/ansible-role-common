@@ -1,0 +1,19 @@
+---
+
+- block:
+    - validate:
+        schema:
+          type: object
+          properties:
+            command:
+              type: string
+              enum:
+                - controller_reset_connection
+                - dependency
+          required:
+            - command
+        instance: "{{ common }}"
+
+    - include_tasks: '{{ common.command }}.yml'
+  tags:
+    - common

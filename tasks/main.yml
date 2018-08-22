@@ -1,20 +1,4 @@
 ---
 
-- block:
-    - validate:
-        schema:
-          type: object
-          properties:
-            command:
-              type: string
-              enum:
-                - controller_reset_connection
-                - dependency
-          required:
-            - command
-        instance: "{{ common }}"
-
-    - include_tasks: '{{ common.command }}.yml'
-      when: common.command != 'dependency'
-  tags:
-    - common
+- include_tasks: ./common.yml
+  when (common not exists) or (command not in common) or (common.command != 'dependency')
