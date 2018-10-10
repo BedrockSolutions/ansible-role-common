@@ -18,7 +18,7 @@ def set_defaults(validator, properties, instance, schema):
     return Draft6Validator.VALIDATORS["properties"](validator, properties, instance, schema)
 
 
-DefaultValidator = validators.extend(Draft6Validator, {"properties": set_defaults, "required": None})
+DefaultValidator = validators.extend(Draft6Validator, {"properties": set_defaults, "required": None, "oneOf": None})
 RequiredValidator = Draft6Validator
 
 
