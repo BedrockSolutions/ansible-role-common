@@ -19,7 +19,6 @@ def set_defaults(validator, properties, instance, schema):
 
 
 validator_overrides = {
-    "patternProperties": set_defaults,
     "properties": set_defaults,
     "required": None,
     "oneOf": None,
