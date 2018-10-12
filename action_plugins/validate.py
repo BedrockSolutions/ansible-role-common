@@ -42,7 +42,7 @@ class ActionModule(ActionBase):
             raise AnsibleError("schema parameter missing")
 
         instance_copy = copy.deepcopy(action_vars['instance'])
-
+        print(instance_copy)
         try:
             default_validator = DefaultValidator(action_vars['schema'])
             default_validator.validate(instance_copy)
