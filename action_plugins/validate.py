@@ -13,7 +13,6 @@ except ImportError as e:
 def set_defaults(validator, properties, instance, schema):
     for prop, subschema in properties.items():
         if "default" in subschema:
-            print("default found in " + prop + ": " + str(subschema['default']))
             instance.setdefault(prop, subschema["default"])
 
     return Draft6Validator.VALIDATORS["properties"](validator, properties, instance, schema)
@@ -57,7 +56,5 @@ class ActionModule(ActionBase):
 
         return_value = super(ActionModule, self).run(tmp, task_vars)
         return_value['result'] = instance_copy
-
-        print(return_value)
 
         return return_value
