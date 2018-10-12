@@ -13,7 +13,7 @@ except ImportError as e:
 def set_defaults(validator, properties, instance, schema):
     for prop, subschema in properties.items():
         if "default" in subschema:
-            print("default found in " + prop + ": " + subschema['default'])
+            print("default found in " + prop + ": " + str(subschema['default']))
             instance.setdefault(prop, subschema["default"])
 
     return Draft6Validator.VALIDATORS["properties"](validator, properties, instance, schema)
