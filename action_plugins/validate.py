@@ -46,8 +46,6 @@ class ActionModule(ActionBase):
             default_validator = DefaultValidator(action_vars['schema'])
             default_validator.validate(instance_copy)
 
-            print(instance_copy)
-
             # This fixes the bug where required was being enforced before
             # defaults were set.
             required_validator = RequiredValidator(action_vars['schema'])
@@ -59,4 +57,7 @@ class ActionModule(ActionBase):
 
         return_value = super(ActionModule, self).run(tmp, task_vars)
         return_value['result'] = instance_copy
+
+        print(return_value)
+
         return return_value
