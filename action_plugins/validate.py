@@ -2,7 +2,7 @@
 
 try:
     import copy
-    from ansible.errors import AnsibleError, AnsibleActionFail
+    from ansible.errors import AnsibleError
     from ansible.module_utils._text import to_native
     from ansible.plugins.action import ActionBase
     from jsonschema import Draft6Validator, SchemaError, ValidationError, validators
@@ -50,9 +50,9 @@ class ActionModule(ActionBase):
             required_validator = RequiredValidator(action_vars['schema'])
             required_validator.validate(instance_copy)
         except ValidationError as e:
-            raise AnsibleActionFail(to_native(e))
+            raise AnsibleError(to_native(e))
         except SchemaError as e:
-            raise AnsibleActionFail(to_native(e))
+            raise AnsibleError(to_native(e))
 
         return_value = super(ActionModule, self).run(tmp, task_vars)
         return_value['result'] = instance_copy
