@@ -31,7 +31,7 @@ dependencies:
     vars:
       common:
         command: dependency
-    version: master
+    version: v1.0
 ```
 
 If you just want to use this role in a playbook or task file, then
@@ -41,9 +41,10 @@ add an entry to the `requirements.yml` file:
 - name: bedrock.common
   scm: git
   src: https://github.com/BedrockSolutions/ansible-role-common.git
-  version: master
+  version: v1.0
 ```
->__Note:__ In both examples, the `version` field can be a branch, tag, or commit hash.
+>__Note:__ In both examples, the `version` field can be a branch,
+tag, or commit hash. Set it to `master` to track the latest changes.
 
 The plugins are now available, and the role can be imported or included
 as `bedrock.common`.
